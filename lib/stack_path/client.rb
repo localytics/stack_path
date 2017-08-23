@@ -1,7 +1,10 @@
 module StackPath
-  class Error < StandardError; end
+  # Represents an error in the response from StackPath
+  class APIError < StandardError; end
 
+  # An API client that allows querying StackPath
   class Client
+    # The constant headers that are sent with each request
     HEADERS = {
       'User-Agent' => 'Ruby StackPath CDN API Client',
       'Content-Type' => 'application/json'
@@ -19,24 +22,37 @@ module StackPath
         )
     end
 
+    # Send a GET request to the StackPath API
     def get(path, params = {})
       path = "#{path}?#{URI.encode_www_form(params)}" if params.any?
       request(:get, path)
     end
 
+    # Send a POST request to the StackPath API
     def post(path, params = {})
       request(:post, path, params)
     end
 
+    # Send a PUT request to the StackPath API
     def put(path, params = {})
       request(:put, path, params)
     end
 
+    # Send a DELETE request to the StackPath API
     def delete(path, params = {})
       request(:delete, path, params)
     end
 
     private
+
+    def response_from(options)
+      response = oauth_client.fetch_protected_resource(options)
+      if response.status != 200
+        raise APIError, "Error requesting #{path}: " \
+          "#{response.to_hash[:reason_phrase]}"
+      end
+      response
+    end
 
     def request(method, path, params = {})
       options = {
@@ -45,14 +61,7 @@ module StackPath
         headers: HEADERS
       }
       options[:body] = JSON.dump(params) if params.any?
-
-      response = oauth_client.fetch_protected_resource(options)
-      if response.status != 200
-        raise Error, "Error requesting #{path}: " \
-          "#{response.to_hash[:reason_phrase]}"
-      end
-
-      JSON.parse(response.body)
+      JSON.parse(response_from(options).body)
     end
   end
 end

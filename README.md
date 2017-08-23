@@ -20,6 +20,26 @@ Or install it yourself as:
 
 ## Usage
 
+First, create a client:
+
+```ruby
+client =
+  StackPath.build_client(
+    company_alias: '...',
+    client_key: '...',
+    client_secret: '...'
+  )
+```
+
+then you can use it to hit endpoints:
+
+```ruby
+client.get('/account')
+# => {"code"=>200, "data"=>{"account"=>{"id"=>"...", "name"=>"...", "alias"=>"...", ...}}}
+```
+
+You can also use the `Client#post`, `#put`, and `#delete` methods. Each of them take a path as the first argument and an optional `params` hash as the second argument.
+
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake test` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
