@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ['Localytics']
   spec.email         = ['oss@localytics.com']
 
-  spec.summary       = 'A Ruby client for StackPath CDN'
+  spec.summary       = 'A Ruby client for the StackPath CDN API'
   spec.homepage      = 'https://github.com/localytics/stack_path'
   spec.license       = 'MIT'
 

@@ -1,6 +1,6 @@
 # StackPath
 
-A Ruby client for [StackPath CDN](https://www.stackpath.com).
+A Ruby client for the [StackPath CDN](https://www.stackpath.com) API.
 
 ## Installation
 
