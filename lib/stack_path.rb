@@ -1,4 +1,6 @@
-require 'stack_path/version'
+require 'json'
+require 'signet/oauth_1/client'
+require 'uri'
 
-module StackPath
-end
+require 'stack_path/client'
+require 'stack_path/version'
