@@ -26,12 +26,8 @@ Or install it yourself as:
 First, create a client:
 
 ```ruby
-client =
-  StackPath.build_client(
-    company_alias: '...',
-    client_key: '...',
-    client_secret: '...'
-  )
+client = StackPath.build_client(company_alias: '...', client_key: '...', client_secret: '...')
+# => #<StackPath::Client:... @base_url="...", @oauth_client=...>
 ```
 
 then you can use it to hit endpoints:

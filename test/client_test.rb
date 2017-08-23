@@ -12,7 +12,7 @@ class ClientTest < Minitest::Test
   end
 
   ResponseDouble = Struct.new(:body, :status) do
-    def self.build(raw, status = 200)
+    def self.build(raw = { 'ping' => 'pong' }, status = 200)
       new(JSON.dump(raw), status)
     end
 
@@ -22,37 +22,38 @@ class ClientTest < Minitest::Test
   end
 
   def test_get
-    client = build_client([:get, '/account'] => ResponseDouble.build('ping' => 'pong'))
+    client = build_client([:get, '/account'] => ResponseDouble.build)
     assert_equal 'pong', client.get('/account')['ping']
   end
 
   def test_get_with_params
-    client = build_client([:get, '/account?foo=bar'] => ResponseDouble.build('ping' => 'pong'))
+    client = build_client([:get, '/account?foo=bar'] => ResponseDouble.build)
     assert_equal 'pong', client.get('/account', foo: 'bar')['ping']
   end
 
   def test_post
-    client = build_client([:post, '/account'] => ResponseDouble.build('ping' => 'pong'))
+    client = build_client([:post, '/account'] => ResponseDouble.build)
     assert_equal 'pong', client.post('/account')['ping']
   end
 
   def test_post_with_params
-    client = build_client([:post, '/account'] => ResponseDouble.build('ping' => 'pong'))
+    client = build_client([:post, '/account'] => ResponseDouble.build)
     assert_equal 'pong', client.post('/account', foo: 'bar')['ping']
   end
 
   def test_put
-    client = build_client([:put, '/account'] => ResponseDouble.build('ping' => 'pong'))
+    client = build_client([:put, '/account'] => ResponseDouble.build)
     assert_equal 'pong', client.put('/account')['ping']
   end
 
   def test_delete
-    client = build_client([:delete, '/account'] => ResponseDouble.build('ping' => 'pong'))
+    client = build_client([:delete, '/account'] => ResponseDouble.build)
     assert_equal 'pong', client.delete('/account')['ping']
   end
 
   def test_bad_response
-    client = build_client([:get, '/account'] => ResponseDouble.build({ 'ping' => 'pong' }, 404))
+    response = ResponseDouble.build({ 'ping' => 'pong' }, 404)
+    client = build_client([:get, '/account'] => response)
     assert_raises StackPath::APIError do
       client.get('/account')
     end

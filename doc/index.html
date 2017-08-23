@@ -87,13 +87,9 @@ API.</p>
 
 <p>First, create a client:</p>
 
-<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_client'>client</span> <span class='op'>=</span>
-  <span class='const'><span class='object_link'><a href="StackPath.html" title="StackPath (module)">StackPath</a></span></span><span class='period'>.</span><span class='id identifier rubyid_build_client'><span class='object_link'><a href="StackPath.html#build_client-class_method" title="StackPath.build_client (method)">build_client</a></span></span><span class='lparen'>(</span>
-    <span class='label'>company_alias:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>...</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
-    <span class='label'>client_key:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>...</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
-    <span class='label'>client_secret:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>...</span><span class='tstring_end'>&#39;</span></span>
-  <span class='rparen'>)</span>
-</code></pre>
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_client'>client</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="StackPath.html" title="StackPath (module)">StackPath</a></span></span><span class='period'>.</span><span class='id identifier rubyid_build_client'><span class='object_link'><a href="StackPath.html#build_client-class_method" title="StackPath.build_client (method)">build_client</a></span></span><span class='lparen'>(</span><span class='label'>company_alias:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>...</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='label'>client_key:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>...</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='label'>client_secret:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>...</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+<span class='comment'># =&gt; #&lt;StackPath::Client:... @base_url=&quot;...&quot;, @oauth_client=...&gt;
+</span></code></pre>
 
 <p>then you can use it to hit endpoints:</p>
 
@@ -131,7 +127,7 @@ href="http://opensource.org/licenses/MIT">MIT License</a>.</p>
 </div></div>
 
       <div id="footer">
-  Generated on Wed Aug 23 13:00:50 2017 by
+  Generated on Wed Aug 23 13:05:15 2017 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.9 (ruby-2.4.1).
 </div>
