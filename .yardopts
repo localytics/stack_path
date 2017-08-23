@@ -1,0 +1,7 @@
+--title 'Humidifier'
+--no-private
+--markup markdown
+--quiet
+--output-dir docs
+-
+LICENSE

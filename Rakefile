@@ -1,5 +1,6 @@
 require 'bundler/gem_tasks'
 require 'rake/testtask'
+require 'yard'
 
 Rake::TestTask.new(:test) do |t|
   t.libs << 'test'
@@ -8,3 +9,7 @@ Rake::TestTask.new(:test) do |t|
 end
 
 task default: :test
+
+YARD::Rake::YardocTask.new do |t|
+  t.stats_options = ['--list-undoc']
+end
