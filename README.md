@@ -2,6 +2,7 @@
 
 [![Build Status](https://travis-ci.org/localytics/stack_path.svg?branch=master)](https://travis-ci.org/localytics/stack_path)
 [![Coverage Status](https://coveralls.io/repos/github/localytics/stack_path/badge.svg?branch=master)](https://coveralls.io/github/localytics/stack_path?branch=master)
+[![Gem Version](https://img.shields.io/gem/v/stack_path.svg)](https://rubygems.org/gems/stack_path)
 
 A Ruby client for the [StackPath CDN](https://www.stackpath.com) API.
 
