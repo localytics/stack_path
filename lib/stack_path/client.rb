@@ -48,7 +48,7 @@ module StackPath
     def response_from(options)
       response = oauth_client.fetch_protected_resource(options)
       if response.status != 200
-        raise APIError, "Error requesting #{path}: " \
+        raise APIError, "Error requesting #{options[:uri]}: " \
           "#{response.to_hash[:reason_phrase]}"
       end
       response
